@@ -1,0 +1,135 @@
+:root {
+    --green: rgb(39, 189, 39);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Playfair Display", serif;
+  }
+  
+  h1, h2 {
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    padding: 0.25rem 1rem;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button.primary {
+    background-color: var(--green);
+    color: white;
+  }
+  
+  .app {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  
+  .logo {
+    font-size: 1.25em;
+    padding-left: 0.5rem;
+    color: transparent;
+    text-shadow: 0 0 0 var(--green);
+  }
+  
+  .new-plant-form {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background-color: rgba(181, 250, 181, 0.5);
+    border-radius: 8px;
+  }
+  
+  .new-plant-form form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  
+  .new-plant-form input {
+    margin-right: 1rem;
+    flex: 1;
+  }
+  
+  .new-plant-form button {
+    width: 150px;
+  }
+  
+  .searchbar {
+    padding: 1rem 0;
+  }
+  
+  .search-bar {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  
+  .cards {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+  }
+  
+  .plant-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem;
+    flex: 1 1 300px;
+  }
+  
+  .plant-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .plant-card h3 {
+    margin: 0.5rem 0;
+  }
+  
+  .plant-card p {
+    margin: 0.25rem 0;
+  }
+  
+  .plant-card button {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .plant-card {
+      flex: 1 1 calc(33% - 1rem);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .plant-card {
+      flex: 1 1 calc(25% - 1rem);
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .plant-card {
+      flex: 1 1 calc(20% - 1rem);
+    }
+  }

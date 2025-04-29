@@ -1,17 +1,19 @@
-import React from "react";
+import React from 'react';
 
-function PlantCard() {
+function PlantCard({ plant, toggleSoldOut }) {
   return (
-    <li className="card" data-testid="plant-item">
-      <img src={"https://via.placeholder.com/400"} alt={"plant name"} />
-      <h4>{"plant name"}</h4>
-      <p>Price: {"plant price"}</p>
-      {true ? (
-        <button className="primary">In Stock</button>
-      ) : (
-        <button>Out of Stock</button>
-      )}
-    </li>
+    <div className="plant-card">
+      <img src={plant.image} alt={plant.name} />
+      <h3>{plant.name}</h3>
+      <p>${plant.price.toFixed(2)}</p>
+      <p>{plant.soldOut ? 'Sold Out' : 'In Stock'}</p>
+      <button 
+        className={plant.soldOut ? '' : 'primary'}
+        onClick={() => toggleSoldOut(plant.id)}
+      >
+        {plant.soldOut ? 'Mark In Stock' : 'Mark Sold Out'}
+      </button>
+    </div>
   );
 }
 
