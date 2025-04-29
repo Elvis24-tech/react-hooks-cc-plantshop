@@ -17,7 +17,6 @@ function PlantForm({ addPlant }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Validate form data
     if (!formData.name || !formData.image || !formData.price) {
       alert('Please fill in all fields');
       return;
@@ -29,10 +28,10 @@ function PlantForm({ addPlant }) {
       price: parseFloat(formData.price),
     };
 
-    // Call the addPlant function from props
+    
     addPlant(newPlant);
 
-    // Reset form
+   
     setFormData({
       name: '',
       image: '',
@@ -53,7 +52,7 @@ function PlantForm({ addPlant }) {
           required
         />
         <input
-          type="url"  // Changed to url type for better validation
+          type="url"  
           name="image"
           placeholder="Image URL"
           value={formData.image}

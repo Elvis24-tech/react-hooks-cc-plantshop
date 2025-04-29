@@ -11,7 +11,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch all plants on component mount
   useEffect(() => {
     const fetchPlants = async () => {
       try {
@@ -24,7 +23,6 @@ function App() {
         
         const data = await response.json();
         
-        // Ensure data is an array before mapping
         if (!Array.isArray(data)) {
           throw new Error('Received invalid data format from server');
         }
@@ -37,7 +35,7 @@ function App() {
       } catch (err) {
         console.error('Fetch error:', err);
         setError(err.message);
-        setPlants([]); // Reset plants to empty array
+        setPlants([]); 
       } finally {
         setIsLoading(false);
       }
@@ -46,12 +44,10 @@ function App() {
     fetchPlants();
   }, []);
 
-  // Add a new plant
   const addPlant = async (newPlant) => {
     const tempId = Date.now();
     
     try {
-      // Optimistic UI update
       setPlants(prev => [...prev, { ...newPlant, id: tempId, soldOut: false }]);
 
       const response = await fetch('http://localhost:6001/plants', {
@@ -73,14 +69,12 @@ function App() {
     }
   };
 
-  // Toggle sold out status
   const toggleSoldOut = (id) => {
     setPlants(prev => prev.map(p => 
       p.id === id ? { ...p, soldOut: !p.soldOut } : p
     ));
   };
 
-  // Filter plants based on search term
   const filteredPlants = plants.filter(p =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
